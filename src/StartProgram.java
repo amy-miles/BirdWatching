@@ -59,9 +59,11 @@ public class StartProgram {
 
 			if (!foundSightings.isEmpty()) {
 				System.out.println("Found Results.");
-				for (Sighting s : foundSightings) {
+				System.out.println("--------------");
+				for (Sighting s : foundSightings) {					
 					System.out.println(s.getId() + " : " + s.returnSightingDetails());
 				}
+				System.out.println("--------------");
 				System.out.print("Which ID to edit: ");
 				int idToEdit = in.nextInt();
 
@@ -130,10 +132,12 @@ public class StartProgram {
 
 		private static void viewTheList() {
 
-			List<Sighting> allSightings = sh.showAllSightings();			
+			List<Sighting> allSightings = sh.showAllSightings();
+			System.out.println("--------------");
 			for(Sighting singleSighting : allSightings){
 			System.out.println(singleSighting.returnSightingDetails());
 			}
+			System.out.println("--------------");
 			
 
 		}
