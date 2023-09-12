@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import model.Sighting;
 
@@ -28,4 +29,21 @@ public class SightingHelper {
 		}
 	
 	
+	public void deleteSighting(Sighting toDelete) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Sighting> typedQuery = em.createQuery("select s from	Sighting s where s.species = :selectedSpecies and s.county = :selectedCounty", Sighting.class);
+		
+		//Substitute parameter with actual data from the toDelete item
+		typedQuery.setParameter("selectedSpecies", toDelete.getSpecies());
+		typedQuery.setParameter("selectedCounty", toDelete.getCounty());
+		//we only want one result
+		typedQuery.setMaxResults(1);
+		//get the result and save it into a new list item
+		Sighting result = typedQuery.getSingleResult();
+		//remove it
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+		}
 }

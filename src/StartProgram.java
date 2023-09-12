@@ -29,7 +29,8 @@ public class StartProgram {
 			String species = in.nextLine();			
 			System.out.print("Enter the county to delete: ");
 			String county = in.nextLine();
-
+			Sighting toDelete = new Sighting(species, county);
+			sh.deleteSighting(toDelete);
 		}
 
 		private static void editSighting() {
