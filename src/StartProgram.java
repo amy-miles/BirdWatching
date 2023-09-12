@@ -60,7 +60,7 @@ public class StartProgram {
 			if (!foundSightings.isEmpty()) {
 				System.out.println("Found Results.");
 				for (Sighting s : foundSightings) {
-					System.out.println(s.getId() + " : " + s.toString());
+					System.out.println(s.getId() + " : " + s.returnSightingDetails());
 				}
 				System.out.print("Which ID to edit: ");
 				int idToEdit = in.nextInt();
