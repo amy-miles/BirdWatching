@@ -25,9 +25,6 @@ public class Sighting {
 	@Column(name="species")
 	private String species;
 	
-	@Column(name="gender")
-	private String gender;
-	
 	@Column(name="county")
 	private String county;
 	
@@ -38,14 +35,12 @@ public class Sighting {
 	
 	/**
 	 * constructor with params
-	 * @param species to be set
-	 * @param gender to be set
+	 * @param species to be set	
 	 * @param county to be set
 	 */
-	public Sighting(String species, String gender, String county) {
+	public Sighting(String species, String county) {
 		super();
-		this.species =  species;
-		this.gender = gender;
+		this.species =  species;		
 		this.county = county;
 	}
 
@@ -77,19 +72,6 @@ public class Sighting {
 		this.species = species;
 	}
 
-	/**
-	 * @return the gender
-	 */
-	public String getGender() {
-		return gender;
-	}
-
-	/**
-	 * @param gender the gender to set
-	 */
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 
 	/**
 	 * @return the county
@@ -105,8 +87,8 @@ public class Sighting {
 		this.county = county;
 	}
 	
-	public String returnSightingList() {
-		return this.species + " " + this.gender + " " + this.county;
+	public String returnSightingDetails() {
+		return this.species + " " + this.county;
 	}
 	
 	
