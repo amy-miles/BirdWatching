@@ -7,6 +7,11 @@ import java.util.Scanner;
 import controller.SightingHelper;
 import model.Sighting;
 
+/**
+ * @author Amy Miles
+ * CIS 175 - Fall 2023
+ * Sep 11, 2023
+ */
 public class StartProgram {
 
 		static Scanner in = new Scanner(System.in);
@@ -40,19 +45,19 @@ public class StartProgram {
 			System.out.println("2 : Search by County");
 			int searchBy = in.nextInt();
 			in.nextLine();
-			/*List<Sighting> foundSightings;
+			List<Sighting> foundSightings;
 			if (searchBy == 1) {
 				System.out.print("Enter the species name: ");
 				String speciesName = in.nextLine();
-				
+				foundSightings = sh.searchForSightingBySpecies(speciesName);
 			} else {
 				System.out.print("Enter the county: ");
 				String countyName = in.nextLine();
 				
-
+				foundSightings = sh.searchForSightingByCounty(countyName);
 			}
 
-			if (!foundItems.isEmpty()) {
+			if (!foundSightings.isEmpty()) {
 				System.out.println("Found Results.");
 				for (Sighting s : foundSightings) {
 					System.out.println(s.getId() + " : " + s.toString());
@@ -82,7 +87,7 @@ public class StartProgram {
 			} else {
 				System.out.println("---- No results found");
 			}
-*/
+
 		}
 
 		public static void main(String[] args) {
@@ -114,7 +119,7 @@ public class StartProgram {
 				} else if (selection == 4) {
 					viewTheList();
 				} else {
-					//sh.cleanUp();
+					sh.cleanUp();
 					System.out.println("   Goodbye!   ");
 					goAgain = false;
 				}
