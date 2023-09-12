@@ -6,16 +6,34 @@
 
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="sightings")
+
 public class Sighting {
 	
+	@Id
+	@GeneratedValue
+	@Column(name="ID")
 	private int id;
+	
+	@Column(name="species")
 	private String species;
+	
+	@Column(name="gender")
 	private String gender;
+	
+	@Column(name="county")
 	private String county;
 	
 	//default no-arg constructor
 	public Sighting(){
-		
+		super();
 	}	
 	
 	/**
@@ -25,6 +43,7 @@ public class Sighting {
 	 * @param county to be set
 	 */
 	public Sighting(String species, String gender, String county) {
+		super();
 		this.species =  species;
 		this.gender = gender;
 		this.county = county;
